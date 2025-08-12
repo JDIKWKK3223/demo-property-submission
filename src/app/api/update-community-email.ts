@@ -23,7 +23,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 
   let updated = false;
-  communities = communities.map((c: Community) => {
+  communities = communities.map((c: Community): Community => {
     if (c.name === community && c.city_name === city) {
       updated = true;
       return { ...c, email: newEmail };

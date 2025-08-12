@@ -174,9 +174,7 @@ export default function Page() {
               mx: "auto",
               fontFamily: "Nunito, Arial, sans-serif",
             }}
-          >
-            Get your property in front of the best locators &amp; brokers in Texas. Fast, free, and trusted by the industry.
-          </Typography>
+          >          </Typography>
         </Box>
         {/* Main Content: Animation + Form in a flex row */}
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, width: '100%', maxWidth: 1100, mx: 'auto', mt: 2 }}>
@@ -471,9 +469,9 @@ export default function Page() {
       </Box>
       {/* Confirmation Modal (fragment sibling) */}
       <Dialog open={confirmationOpen} onClose={() => setConfirmationOpen(false)} maxWidth="xs" fullWidth>
-        <DialogTitle sx={{ fontWeight: 800, fontSize: { xs: 28, md: 36 }, textAlign: 'center', mt: 2, mb: 1, letterSpacing: 1, color: '#1a202c', fontFamily: 'Nunito, Arial, sans-serif', p: 0, width: '100%' }} component="div">We're on it</DialogTitle>
+        <DialogTitle sx={{ fontWeight: 800, fontSize: { xs: 28, md: 36 }, textAlign: 'center', mt: 2, mb: 1, letterSpacing: 1, color: '#1a202c', fontFamily: 'Nunito, Arial, sans-serif', p: 0, width: '100%' }} component="div">We&apos;re on it</DialogTitle>
         <DialogContent>
-          <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: { xs: 18, md: 20 }, textAlign: 'center', fontWeight: 500, fontFamily: 'Nunito, Arial, sans-serif', mt: 1, mb: 2 }}>You'll receive an email once your new community email is confirmed. Thanks for helping us keep our data accurate!</Typography>
+          <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: { xs: 18, md: 20 }, textAlign: 'center', fontWeight: 500, fontFamily: 'Nunito, Arial, sans-serif', mt: 1, mb: 2 }}>You&apos;ll receive an email once your new community email is confirmed. Thanks for helping us keep our data accurate!</Typography>
         </DialogContent>
         <DialogActions sx={{ justifyContent: 'center', pb: 2 }}>
           <Button onClick={() => setConfirmationOpen(false)} color="primary" variant="contained" sx={{ fontWeight: 600, px: 4 }}>Close</Button>

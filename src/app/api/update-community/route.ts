@@ -3,7 +3,7 @@ const GOOGLE_APPS_SCRIPT_UPDATE_URL = 'https://script.google.com/macros/s/AKfycb
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+  const body: Record<string, unknown> = await request.json();
     if (!body.email) {
       return new Response(JSON.stringify({ error: 'Missing email' }), {
         status: 400,
@@ -15,14 +15,14 @@ export async function POST(request: Request) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     });
-    const data = await response.json().catch(() => response.text());
+  const data: unknown = await response.json().catch(() => response.text());
   // Removed unused code referencing undefined variables for lint compatibility
     return new Response(JSON.stringify(data), {
       status: response.status,
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (error) {
-    const err = error as Error;
+  const err = error instanceof Error ? error : new Error('Unknown error');
     return new Response(JSON.stringify({ error: err.message || 'Unknown error' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
