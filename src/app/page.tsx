@@ -97,7 +97,10 @@ export default function Page() {
 
   // --- Handler/function stubs (implement as needed) ---
   const handleSubmitFill = (e: React.FormEvent) => { e.preventDefault(); };
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {};
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
   const WEBHOOK = process.env.NEXT_PUBLIC_APPS_SCRIPT_WEBHOOK!;
 
   const [form, setForm] = useState({
