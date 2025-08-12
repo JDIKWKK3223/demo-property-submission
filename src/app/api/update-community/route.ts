@@ -16,6 +16,15 @@ export async function POST(request: Request) {
       body: JSON.stringify(body),
     });
     const data = await response.json().catch(() => response.text());
+    type Community = { name: string; city_name: string; email?: string; [key: string]: any };
+    let updated = false;
+    communities = communities.map((c: Community) => {
+      if (c.name === community && c.city_name === city) {
+        updated = true;
+        return { ...c, ...fields };
+      }
+      return c;
+    });
     return new Response(JSON.stringify(data), {
       status: response.status,
       headers: { 'Content-Type': 'application/json' },

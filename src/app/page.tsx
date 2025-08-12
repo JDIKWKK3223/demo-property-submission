@@ -172,7 +172,7 @@ export default function Page() {
               fontFamily: "Nunito, Arial, sans-serif",
             }}
           >
-            Get your property in front of the best locators & brokers in Texas. Fast, free, and trusted by the industry.
+            Get your property in front of the best locators &amp; brokers in Texas. Fast, free, and trusted by the industry.
           </Typography>
         </Box>
         {/* Main Content: Animation + Form in a flex row */}
@@ -334,7 +334,7 @@ export default function Page() {
                           <Box sx={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 3, justifyContent: 'flex-start', background: '#f9fafb', borderRadius: { xs: 0, md: '0 0 0 40px' }, p: { xs: 4, md: 5 }, borderRight: { md: '1.5px solid #e5e7eb' }, boxShadow: { xs: 'none', md: 'none' }, mb: { xs: 0, md: 0 } }}>
                             <Typography variant="h6" sx={{ fontWeight: 900, color: '#2563eb', letterSpacing: 0.2, fontFamily: 'Nunito, Inter, Arial, sans-serif', fontSize: { xs: '1.2rem', md: '1.35rem' }, textAlign: 'center', pb: 1, borderBottom: '2px solid #e0e7ef', mb: 2 }}>Standard Update</Typography>
                             <DialogContentText sx={{ mb: 2, color: '#64748b', fontSize: '1.08rem', fontWeight: 500, fontFamily: 'Nunito, Inter, Arial, sans-serif', textAlign: 'center' }}>
-                              When you submit a new email, we'll (usually within 5-10 minutes) cross-check the domain against your management and website before confirming and making it live on the site. This helps ensure only verified management contacts are listed.
+                              When you submit a new email, we&apos;ll (usually within 5-10 minutes) cross-check the domain against your management and website before confirming and making it live on the site. This helps ensure only verified management contacts are listed.
                             </DialogContentText>
                             {/* ...removed info box from Standard Update... */}
                             {/* Copy to clipboard UI */}
@@ -354,7 +354,7 @@ export default function Page() {
                             <Box sx={{ mb: 2, p: 2.5, background: 'linear-gradient(90deg, #f1f5f9 60%, #f3f4f6 100%)', borderRadius: 3, boxShadow: '0 1px 4px 0 rgba(31,41,55,0.04)', border: 'none', textAlign: 'center' }}>
                               <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1, color: '#2563eb', fontFamily: 'Nunito, Inter, Arial, sans-serif' }}>Need it updated right away?</Typography>
                               <Typography variant="body2" sx={{ color: '#64748b', fontWeight: 500, fontFamily: 'Nunito, Inter, Arial, sans-serif', textAlign: 'center' }}>
-                                {`If we can't confirm your email right away due to a domain mismatch, and your community doesn't want to wait for our automated confirmation, you can email `}
+                                {`If we can&apos;t confirm your email right away due to a domain mismatch, and your community doesn&apos;t want to wait for our automated confirmation, you can email `}
                                 <span
                                   style={{ color: '#2563eb', textDecoration: 'underline', fontWeight: 700, cursor: 'pointer', display: 'inline-flex', alignItems: 'center' }}
                                   onClick={() => {

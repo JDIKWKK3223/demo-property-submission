@@ -2,6 +2,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs';
 import path from 'path';
 
+type Community = { name: string; city_name: string; email?: string; [key: string]: any };
+
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -13,7 +15,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 
   const filePath = path.join(process.cwd(), 'src/data/communities.json');
-  let communities = [];
+  let communities: Community[] = [];
   try {
     communities = JSON.parse(fs.readFileSync(filePath, 'utf8'));
   } catch (e) {
@@ -21,7 +23,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 
   let updated = false;
-  communities = communities.map((c: any) => {
+  communities = communities.map((c: Community) => {
     if (c.name === community && c.city_name === city) {
       updated = true;
       return { ...c, email: newEmail };
