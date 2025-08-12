@@ -96,7 +96,26 @@ export default function Page() {
   const [copied, setCopied] = useState(false);
 
   // --- Handler/function stubs (implement as needed) ---
-  const handleSubmitFill = (e: React.FormEvent) => { e.preventDefault(); };
+  const handleSubmitFill = (e: React.FormEvent) => {
+    e.preventDefault();
+    // List of required fields
+    const required = [
+      'community',
+      'management',
+      'phone',
+      'email',
+      'specials',
+      'commissionSend',
+      'commissionEscort'
+    ];
+    const missing = required.filter((k) => !form[k as keyof typeof form] || String(form[k as keyof typeof form]).trim() === '');
+    if (missing.length) {
+      setFormError('Please fill out: ' + missing.join(', '));
+      return;
+    }
+    setFormError(null);
+    setPhase('verify');
+  };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
@@ -162,7 +181,7 @@ export default function Page() {
               fontFamily: "Nunito, Arial, sans-serif",
             }}
           >
-            Submit a Property
+            Update your community details for locators:
           </Typography>
           <Typography
             variant="subtitle1"
@@ -328,7 +347,9 @@ export default function Page() {
                     <TextField label="Notes" name="notes" value={form.notes} onChange={handleChange} fullWidth multiline minRows={3} sx={{ mb: 2 }} />
                     {/* Email Correction Modal */}
                     <Dialog open={emailDialogOpen} onClose={() => setEmailDialogOpen(false)} maxWidth="md" fullWidth PaperProps={{ sx: { minHeight: 560, minWidth: 860, p: 0, borderRadius: 5, boxShadow: '0 8px 32px 0 rgba(31, 41, 55, 0.18)', background: '#f3f4f6' } }}>
-                      <DialogTitle sx={{ fontWeight: 900, fontSize: { xs: '2rem', md: '2.4rem' }, textAlign: 'center', pb: 0, pt: 4, px: 0, letterSpacing: 0.2, color: '#1e293b', fontFamily: 'Nunito, Inter, Arial, sans-serif', width: '100%' }}>Update Community Email</DialogTitle>
+                      <DialogTitle sx={{ fontWeight: 900, fontSize: { xs: '2rem', md: '2.4rem' }, textAlign: 'center', pb: 0, pt: 4, px: 0, letterSpacing: 0.2, color: '#1e293b', fontFamily: 'Nunito, Inter, Arial, sans-serif', width: '100%' }}>
+                        {form.community ? `Update ${form.community}'s Email` : 'Update Community Email'}
+                      </DialogTitle>
                       <DialogContent sx={{ p: 0, mt: 1 }}>
                         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 0, mt: 0, width: '100%' }}>
                           {/* Left column: Standard update */}

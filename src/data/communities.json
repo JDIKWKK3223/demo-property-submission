@@ -3,5 +3,15 @@
     "name": "Test",
     "city_name": "Austin",
     "email": "data@sparkapt.com"
+  },
+  {
+    "name": "Ashwin Apartments",
+    "city_name": "Surat",
+    "email": "ashwin@complitech.net"
+  },
+  {
+    "name": "Complitech Condos",
+    "city_name": "Goa",
+    "email": "admin@complitech.net"
   }
 ]
