@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs';
 import path from 'path';
 
-type Community = { name: string; city_name: string; email?: string; [key: string]: any };
+type Community = { name: string; city_name: string; email?: string; [key: string]: unknown };
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -18,7 +18,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   let communities: Community[] = [];
   try {
     communities = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  } catch (e) {
+  } catch {
     return res.status(500).json({ error: 'Failed to read communities.json' });
   }
 
@@ -37,7 +37,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   try {
     fs.writeFileSync(filePath, JSON.stringify(communities, null, 2), 'utf8');
-  } catch (e) {
+  } catch {
     return res.status(500).json({ error: 'Failed to update communities.json' });
   }
 

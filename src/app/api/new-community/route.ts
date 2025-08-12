@@ -7,7 +7,8 @@ const GOOGLE_APPS_SCRIPT_URL =
 const TEST_INBOX = 'crawford1.anthony@gmail.com';
 const FORCE_TEST_MODE = process.env.FORCE_TEST_MODE === 'true';
 
-function normalizeAndOverrideRecipient(body: any) {
+type Community = { name: string; city_name: string; email?: string; [key: string]: unknown };
+function normalizeAndOverrideRecipient(body: Record<string, unknown>) {
   // Detect test by env or code prefix
   const code = String(body?.code || '').trim().toUpperCase();
   const isTest = FORCE_TEST_MODE || code.startsWith('TEST');
@@ -54,8 +55,9 @@ export async function POST(request: Request) {
       status: response.status,
       headers: { 'Content-Type': 'application/json' },
     });
-  } catch (error: any) {
-    return new Response(JSON.stringify({ error: error.message || 'Unknown error' }), {
+  } catch (error) {
+    const err = error as Error;
+    return new Response(JSON.stringify({ error: err.message || 'Unknown error' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });

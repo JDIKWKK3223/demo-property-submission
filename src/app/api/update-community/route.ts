@@ -16,21 +16,14 @@ export async function POST(request: Request) {
       body: JSON.stringify(body),
     });
     const data = await response.json().catch(() => response.text());
-    type Community = { name: string; city_name: string; email?: string; [key: string]: any };
-    let updated = false;
-    communities = communities.map((c: Community) => {
-      if (c.name === community && c.city_name === city) {
-        updated = true;
-        return { ...c, ...fields };
-      }
-      return c;
-    });
+  // Removed unused code referencing undefined variables for lint compatibility
     return new Response(JSON.stringify(data), {
       status: response.status,
       headers: { 'Content-Type': 'application/json' },
     });
-  } catch (error: any) {
-    return new Response(JSON.stringify({ error: error.message || 'Unknown error' }), {
+  } catch (error) {
+    const err = error as Error;
+    return new Response(JSON.stringify({ error: err.message || 'Unknown error' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });
