@@ -1,0 +1,29 @@
+/* Example CSS for your form component */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 3%;
+}
+
+.form-button {
+    background: #0078d4;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+}
+
+.form-button:hover {
+    background: #005fa3;
+}

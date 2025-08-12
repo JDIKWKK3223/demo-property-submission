@@ -1,0 +1,33 @@
+.db-pulse {
+  animation: db-pulse 1.8s infinite;
+}
+@keyframes db-pulse {
+  0% { filter: drop-shadow(0 0 0px #b3c6f7); }
+  50% { filter: drop-shadow(0 0 12px #b3c6f7); }
+  100% { filter: drop-shadow(0 0 0px #b3c6f7); }
+}
+.db-arrow {
+  opacity: 0.7;
+  transform-origin: 110px 110px;
+}
+.db-arrow1 {
+  animation: db-arrow1-move 2.2s infinite;
+}
+@keyframes db-arrow1-move {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+.db-arrow2 {
+  animation: db-arrow2-move 2.2s infinite 0.3s;
+}
+@keyframes db-arrow2-move {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+.db-arrow3 {
+  animation: db-arrow3-move 2.2s infinite 0.6s;
+}
+@keyframes db-arrow3-move {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.08); opacity: 1; }
+}

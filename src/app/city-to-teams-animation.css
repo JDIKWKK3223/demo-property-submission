@@ -1,0 +1,141 @@
+/* Animated data packet: from building to Spark, then to team node */
+
+/* Incoming: from building to Spark (center) */
+.data-packet-in {
+  animation: packet-in-move 2.8s linear infinite;
+}
+@keyframes packet-in-move {
+  0% {
+    /* Start at building (x=105, y=300) */
+    transform: translate(105px, 300px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translate(105px, 300px);
+  }
+  30% {
+    /* Elbow of the line (x=165, y=210) */
+    opacity: 1;
+    transform: translate(165px, 210px);
+  }
+  50% {
+    /* Arrive at Spark edge (x=255, y=180) */
+    opacity: 1;
+    transform: translate(255px, 180px);
+  }
+  60% {
+    opacity: 0;
+    transform: translate(255px, 180px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(255px, 180px);
+  }
+}
+
+/* Outgoing: from Spark to each locator node, start after incoming dot arrives */
+.data-packet-out {
+  opacity: 0;
+}
+.packet-out-1 {
+  animation: packet-out-1-move 2.8s linear infinite;
+  animation-delay: 0s;
+}
+.packet-out-2 {
+  animation: packet-out-2-move 2.8s linear infinite;
+  animation-delay: 0s;
+}
+.packet-out-3 {
+  animation: packet-out-3-move 2.8s linear infinite;
+  animation-delay: 0s;
+}
+@keyframes packet-out-1-move {
+  0%, 44% {
+    opacity: 0;
+    transform: translate(255px, 207px);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(255px, 207px);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(135px, 90px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(135px, 90px);
+  }
+}
+@keyframes packet-out-2-move {
+  0%, 44% {
+    opacity: 0;
+    transform: translate(255px, 207px);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(255px, 207px);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(255px, 60px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(255px, 60px);
+  }
+}
+@keyframes packet-out-3-move {
+  0%, 44% {
+    opacity: 0;
+    transform: translate(255px, 207px);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(255px, 207px);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(375px, 90px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(375px, 90px);
+  }
+}
+.city-line {
+  fill: none;
+  stroke: #fbbf24;
+  stroke-width: 3;
+  stroke-dasharray: 6 6;
+  animation: city-line-dash 2.2s linear infinite;
+}
+@keyframes city-line-dash {
+  to { stroke-dashoffset: -24; }
+}
+.spark-pulse {
+  filter: drop-shadow(0 0 0 #fbbf24);
+  animation: spark-pulse 1.6s infinite;
+}
+@keyframes spark-pulse {
+  0%, 100% { filter: drop-shadow(0 0 0 #fbbf24); }
+  50% { filter: drop-shadow(0 0 10px #fbbf24); }
+}
+.spark-line {
+  fill: none;
+  stroke: #3b82f6;
+  stroke-width: 2.5;
+  stroke-dasharray: 5 7;
+  animation: spark-line-dash 2.2s linear infinite;
+}
+@keyframes spark-line-dash {
+  to { stroke-dashoffset: -20; }
+}
+.team-pulse {
+  animation: team-pulse 2.2s infinite;
+}
+@keyframes team-pulse {
+  0%, 100% { filter: drop-shadow(0 0 0 #3b82f6); }
+  50% { filter: drop-shadow(0 0 8px #3b82f6); }
+}

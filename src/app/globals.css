@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -17,11 +19,15 @@ body {
 }
 
 body {
-  color: var(--foreground);
+  color: #444;
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.font-nunito {
+  font-family: 'Nunito', Arial, Helvetica, sans-serif !important;
 }
 
 * {
@@ -39,4 +45,14 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.page-bg {
+  min-height: 100vh;
+  margin: 0;
+  isolation: isolate; /* matches what Next was doing */
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(37,99,235,0.08), transparent 60%),
+    radial-gradient(1000px 500px at 100% 0%, rgba(16,185,129,0.08), transparent 60%),
+    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
 }
